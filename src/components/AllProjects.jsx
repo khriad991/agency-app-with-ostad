@@ -25,19 +25,74 @@ const AllProjects = () => {
                         </div>
                     </div>
                     <div className="flex flex-wrap -mx-4 mb-4">
-                        {/*{*/}
-                        {/*    data.map((item,i)=>{*/}
-                        {/*        return(*/}
-                        {/*            <div key={i} className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">*/}
-                        {/*                <a target="_blank" href={item['live']}>*/}
-                        {/*                    <img className="h-80 w-full mx-auto object-cover rounded"*/}
-                        {/*                         src={item['image']}*/}
-                        {/*                         alt=""/>*/}
-                        {/*                </a>*/}
-                        {/*            </div>*/}
-                        {/*        )*/}
-                        {/*    })*/}
-                        {/*}*/}
+
+
+                       <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
+                                        <a target="_blank" href="#">
+                                            <img className="h-80 w-full mx-auto object-cover rounded"
+                                                 src='/images/shutterstock-1702515205.jpg'
+                                                 alt="project"/>
+                                        </a>
+                                    </div>
+
+                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
+                            <a target="_blank" href="#">
+                                <img className="h-80 w-full mx-auto object-cover rounded"
+                                     src='/images/shutterstock-1702515205.jpg'
+                                     alt="project"/>
+                            </a>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
+                            <a target="_blank" href="#">
+                                <img className="h-80 w-full mx-auto object-cover rounded"
+                                     src='/images/shutterstock-1702515205.jpg'
+                                     alt="project"/>
+                            </a>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
+                            <a target="_blank" href="#">
+                                <img className="h-80 w-full mx-auto object-cover rounded"
+                                     src='/images/shutterstock-1702515205.jpg'
+                                     alt="project"/>
+                            </a>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
+                            <a target="_blank" href="#">
+                                <img className="h-80 w-full mx-auto object-cover rounded"
+                                     src='/images/shutterstock-1702515205.jpg'
+                                     alt="project"/>
+                            </a>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
+                            <a target="_blank" href="#">
+                                <img className="h-80 w-full mx-auto object-cover rounded"
+                                     src='/images/shutterstock-1702515205.jpg'
+                                     alt="project"/>
+                            </a>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
+                            <a target="_blank" href="#">
+                                <img className="h-80 w-full mx-auto object-cover rounded"
+                                     src='/images/shutterstock-1702515205.jpg'
+                                     alt="project"/>
+                            </a>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
+                            <a target="_blank" href="#">
+                                <img className="h-80 w-full mx-auto object-cover rounded"
+                                     src='/images/shutterstock-1702515205.jpg'
+                                     alt="project"/>
+                            </a>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
+                            <a target="_blank" href="#">
+                                <img className="h-80 w-full mx-auto object-cover rounded"
+                                     src='/images/shutterstock-1702515205.jpg'
+                                     alt="project"/>
+                            </a>
+                        </div>
+
+
                     </div>
 
                 </div>

@@ -10,7 +10,6 @@ export async function generateMetadata(){
 const Layout = ({children}) => {
     return (
         <div>
-            <h1>this is child layout </h1>
             {children}
         </div>
     );
