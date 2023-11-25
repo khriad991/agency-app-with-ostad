@@ -1,5 +1,13 @@
+const getData =async () => {
+    const res =await fetch(`${process.env.BASE_URL}api/TestimonialList`)
+    if(!res.ok){
+        throw new Error("TestimonialList colling Fail")
+    }
+    return res.json();
+}
 
-const Testimonials = () => {
+const Testimonials =async  () => {
+     const data = await getData();
     return (
         <div>
             <section>
@@ -19,118 +27,23 @@ const Testimonials = () => {
                     </div>
                     <div className="relative flex">
                         <div className="flex flex-wrap max-w-6xl px-2 mx-auto">
-
-                            <div className="mb-4 w-full lg:w-1/3 px-3">
-                                            <div className="p-8 bg-white rounded shadow text-center">
-                                                <div className="bg-no-repeat bg-left-top"
-                                                     style={{backgroundImage: 'url("atis-assets/elements/quote-grey.svg")'}}>
-                                                    <p className="mb-8 text-gray-500 leading-loose">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et
-                                                        placerat metus. Morbi aliquet felis sit amet erat finibus, ac condimentum ligula ornare.
-                                                    </p>
-                                                    <img className="mb-2 mx-auto w-12 h-12 rounded-full object-cover"
-                                                         src="/images/testimonial .jpg"
-                                                         alt=""/>
-                                                    <h4 className="mb-1 text-2xl font-bold font-heading">
-                                                        Alice Bradley
-                                                    </h4>
-                                                    <p className="text-gray-500">Backend Developer</p>
-                                                </div>
+                            {
+                                data.map((item,id)=>(
+                                    <div key={id} className="mb-4 w-full lg:w-1/3 px-3">
+                                        <div className="p-8 bg-white rounded shadow text-center">
+                                            <div className="bg-no-repeat bg-left-top"
+                                                 style={{backgroundImage: 'url("atis-assets/elements/quote-grey.svg")'}}>
+                                                <p className="mb-8 text-gray-500 leading-loose">{item["msg"]} </p>
+                                                <img className="mb-2 mx-auto w-12 h-12 rounded-full object-cover"
+                                                     src="/images/testimonial .jpg"
+                                                     alt=""/>
+                                                <h4 className="mb-1 text-2xl font-bold font-heading">{item["name"]}</h4>
+                                                <p className="text-gray-500">{item["designation"]}</p>
                                             </div>
                                         </div>
-
-                            <div className="mb-4 w-full lg:w-1/3 px-3">
-                                <div className="p-8 bg-white rounded shadow text-center">
-                                    <div className="bg-no-repeat bg-left-top"
-                                         style={{backgroundImage: 'url("atis-assets/elements/quote-grey.svg")'}}>
-                                        <p className="mb-8 text-gray-500 leading-loose">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et
-                                            placerat metus. Morbi aliquet felis sit amet erat finibus, ac condimentum ligula ornare.
-                                        </p>
-                                        <img className="mb-2 mx-auto w-12 h-12 rounded-full object-cover"
-                                             src="/images/testimonial .jpg"
-                                             alt=""/>
-                                        <h4 className="mb-1 text-2xl font-bold font-heading">
-                                            Alice Bradley
-                                        </h4>
-                                        <p className="text-gray-500">Backend Developer</p>
                                     </div>
-                                </div>
-                            </div>
-                            <div className="mb-4 w-full lg:w-1/3 px-3">
-                                <div className="p-8 bg-white rounded shadow text-center">
-                                    <div className="bg-no-repeat bg-left-top"
-                                         style={{backgroundImage: 'url("atis-assets/elements/quote-grey.svg")'}}>
-                                        <p className="mb-8 text-gray-500 leading-loose">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et
-                                            placerat metus. Morbi aliquet felis sit amet erat finibus, ac condimentum ligula ornare.
-                                        </p>
-                                        <img className="mb-2 mx-auto w-12 h-12 rounded-full object-cover"
-                                             src="/images/testimonial .jpg"
-                                             alt=""/>
-                                        <h4 className="mb-1 text-2xl font-bold font-heading">
-                                            Alice Bradley
-                                        </h4>
-                                        <p className="text-gray-500">Backend Developer</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="mb-4 w-full lg:w-1/3 px-3">
-                                <div className="p-8 bg-white rounded shadow text-center">
-                                    <div className="bg-no-repeat bg-left-top"
-                                         style={{backgroundImage: 'url("atis-assets/elements/quote-grey.svg")'}}>
-                                        <p className="mb-8 text-gray-500 leading-loose">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et
-                                            placerat metus. Morbi aliquet felis sit amet erat finibus, ac condimentum ligula ornare.
-                                        </p>
-                                        <img className="mb-2 mx-auto w-12 h-12 rounded-full object-cover"
-                                             src="/images/testimonial .jpg"
-                                             alt=""/>
-                                        <h4 className="mb-1 text-2xl font-bold font-heading">
-                                            Alice Bradley
-                                        </h4>
-                                        <p className="text-gray-500">Backend Developer</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="mb-4 w-full lg:w-1/3 px-3">
-                                <div className="p-8 bg-white rounded shadow text-center">
-                                    <div className="bg-no-repeat bg-left-top"
-                                         style={{backgroundImage: 'url("atis-assets/elements/quote-grey.svg")'}}>
-                                        <p className="mb-8 text-gray-500 leading-loose">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et
-                                            placerat metus. Morbi aliquet felis sit amet erat finibus, ac condimentum ligula ornare.
-                                        </p>
-                                        <img className="mb-2 mx-auto w-12 h-12 rounded-full object-cover"
-                                             src="/images/testimonial .jpg"
-                                             alt=""/>
-                                        <h4 className="mb-1 text-2xl font-bold font-heading">
-                                            Alice Bradley
-                                        </h4>
-                                        <p className="text-gray-500">Backend Developer</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="mb-4 w-full lg:w-1/3 px-3">
-                                <div className="p-8 bg-white rounded shadow text-center">
-                                    <div className="bg-no-repeat bg-left-top"
-                                         style={{backgroundImage: 'url("atis-assets/elements/quote-grey.svg")'}}>
-                                        <p className="mb-8 text-gray-500 leading-loose">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et
-                                            placerat metus. Morbi aliquet felis sit amet erat finibus, ac condimentum ligula ornare.
-                                        </p>
-                                        <img className="mb-2 mx-auto w-12 h-12 rounded-full object-cover"
-                                             src="/images/testimonial .jpg"
-                                             alt=""/>
-                                        <h4 className="mb-1 text-2xl font-bold font-heading">
-                                            Alice Bradley
-                                        </h4>
-                                        <p className="text-gray-500">Backend Developer</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
+                                ))
+                            }
                         </div>
                     </div>
                 </div>

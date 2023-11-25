@@ -1,5 +1,16 @@
 
-const HowWorks = () => {
+ const getData=async  ()=> {
+    const res = await fetch(process.env.BASE_URL + "api/WorkList");
+    if (!res.ok) {
+        throw new Error("WorkList List Calling Fail");
+    }
+    return res.json();
+}
+
+
+
+const HowWorks = async () => {
+    const data = await getData();
     return (
         <div>
             <section>
@@ -26,43 +37,18 @@ const HowWorks = () => {
                             </h2>
                         </div>
                         <div className="relative flex flex-wrap -mx-4 z-0">
-
                             <div className="hidden lg:block absolute inset-x-0 max-w-2xl xl:max-w-3xl mx-auto py-px rounded bg-green-600" style={{top: "10%", zIndex: -1}}/>
-
-                                        <div  className="mb-8 w-full lg:w-1/3 px-4 text-center">
+                            {
+                               data.map((item,id)=>(
+                                       <div key={id}  className="mb-8 w-full lg:w-1/3 px-4 text-center">
                                             <span className="relative mb-6 lg:mb-10 mx-auto flex w-16 h-16 items-center justify-center bg-green-600 rounded-full text-white text-2xl">
-                                                1
+                                               {item["step"]}
                                             </span>
-                                            <h3 className="mb-4 text-2xl font-bold font-heading">Lorem ipsum dolor sit amet consectutar</h3>
-                                            <p className="text-gray-500 leading-loose">
-                                                Fusce quam tellus, placerat eu metus ut, viverra aliquet purus. Suspendisse potenti. Nulla non nibh feugiat.
-                                            </p>
-                                        </div>
-
-
-
-
-                            <div  className="mb-8 w-full lg:w-1/3 px-4 text-center">
-                                            <span className="relative mb-6 lg:mb-10 mx-auto flex w-16 h-16 items-center justify-center bg-green-600 rounded-full text-white text-2xl">
-                                                2
-                                            </span>
-                                <h3 className="mb-4 text-2xl font-bold font-heading">Lorem ipsum dolor sit amet consectutar</h3>
-                                <p className="text-gray-500 leading-loose">
-                                    Fusce quam tellus, placerat eu metus ut, viverra aliquet purus. Suspendisse potenti. Nulla non nibh feugiat.
-                                </p>
-                            </div>
-
-
-
-                            <div  className="mb-8 w-full lg:w-1/3 px-4 text-center">
-                                            <span className="relative mb-6 lg:mb-10 mx-auto flex w-16 h-16 items-center justify-center bg-green-600 rounded-full text-white text-2xl">
-                                                3
-                                            </span>
-                                <h3 className="mb-4 text-2xl font-bold font-heading">Lorem ipsum dolor sit amet consectutar</h3>
-                                <p className="text-gray-500 leading-loose">
-                                    Fusce quam tellus, placerat eu metus ut, viverra aliquet purus. Suspendisse potenti. Nulla non nibh feugiat.
-                                </p>
-                            </div>
+                                           <h3 className="mb-4 text-2xl font-bold font-heading">{item["title"]}</h3>
+                                           <p className="text-gray-500 leading-loose">{item["des"]}</p>
+                                       </div>
+                                   ))
+                            }
 
                         </div>
                     </div>

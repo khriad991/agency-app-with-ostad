@@ -1,6 +1,14 @@
-import Link from "next/link";
 
-const Team = () => {
+const getData =async () => {
+    const res = await fetch(`${process.env.BASE_URL}api/TeamList`);
+    if(!res.ok){
+        throw new Error("TeamList colling Fail")
+    }
+    return res.json();
+}
+
+const Team = async () => {
+    const data = await getData();
     return (
         <div>
             <section>
@@ -25,117 +33,31 @@ const Team = () => {
                             </h2>
                         </div>
                         <div className="flex flex-wrap -mx-4">
-
-                            <div className="mb-6 w-full lg:w-1/2 px-4">
-                                            <div className="flex flex-wrap items-center bg-white rounded shadow overflow-hidden">
-                                                <img className="w-full lg:w-1/3 h-80 object-cover"
-                                                     src='images/hero-1.png'
-                                                     alt=""/>
-                                                <div className="w-full lg:w-2/3 lg:pl-6 p-4">
-                                                    <h4 className="mb-2 text-2xl font-bold font-heading">
-                                                        Danny Bailey
-                                                    </h4>
-                                                    <p className="mb-4 text-gray-500 leading-loose">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae felis at ante bibendum mollis et et mauris.
-                                                    </p>
-                                                    <div className="flex">
-                                                        <Link className="mr-3" href='#'>
-                                                            <img src="atis-assets/social/facebook.svg" alt=""/>
-                                                        </Link>
-                                                        <Link className="mr-3" href='#'>
-                                                            <img src="atis-assets/social/twitter.svg" alt=""/>
-                                                        </Link>
-                                                        <Link href="#">
-                                                            <img src="atis-assets/social/instagram.svg" alt=""/>
-                                                        </Link>
-                                                    </div>
+                            {
+                                data.map((item,id)=>(
+                                    <div key={id} className="mb-6 w-full lg:w-1/2 px-4">
+                                        <div className="flex flex-wrap items-center bg-white rounded shadow overflow-hidden">
+                                            <img className="w-full lg:w-1/3 h-80 object-cover"
+                                                 src={item["image"]}
+                                                 alt=""/>
+                                            <div className="w-full lg:w-2/3 lg:pl-6 p-4">
+                                                <h4 className="mb-2 text-2xl font-bold font-heading">{item["name"]}</h4>
+                                                <p className="mb-4 text-gray-500 leading-loose">{item["bio"]} </p>
+                                                <div className="flex">
+                                                    <a target="_blank" className="mr-3" href={item["facebook"]}>
+                                                        <img src="/atis-assets/social/facebook.svg" alt=""/>
+                                                    </a>
+                                                    <a target="_blank" className="mr-3" href={item["twitter"]}>
+                                                        <img src="/atis-assets/social/twitter.svg" alt=""/>
+                                                    </a>
+                                                    <a target="_blank" href={item["instagram"]}>
+                                                        <img src='/atis-assets/social/instagram.svg' alt=""/>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
-
-                            <div className="mb-6 w-full lg:w-1/2 px-4">
-                                <div className="flex flex-wrap items-center bg-white rounded shadow overflow-hidden">
-                                    <img className="w-full lg:w-1/3 h-80 object-cover"
-                                         src='images/hero-1.png'
-                                         alt=""/>
-                                    <div className="w-full lg:w-2/3 lg:pl-6 p-4">
-                                        <h4 className="mb-2 text-2xl font-bold font-heading">
-                                            Danny Bailey
-                                        </h4>
-                                        <p className="mb-4 text-gray-500 leading-loose">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae felis at ante bibendum mollis et et mauris.
-                                        </p>
-                                        <div className="flex">
-                                            <Link className="mr-3" href='#'>
-                                                <img src="atis-assets/social/facebook.svg" alt=""/>
-                                            </Link>
-                                            <Link className="mr-3" href='#'>
-                                                <img src="atis-assets/social/twitter.svg" alt=""/>
-                                            </Link>
-                                            <Link href="#">
-                                                <img src="atis-assets/social/instagram.svg" alt=""/>
-                                            </Link>
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div className="mb-6 w-full lg:w-1/2 px-4">
-                                <div className="flex flex-wrap items-center bg-white rounded shadow overflow-hidden">
-                                    <img className="w-full lg:w-1/3 h-80 object-cover"
-                                         src='images/hero-1.png'
-                                         alt=""/>
-                                    <div className="w-full lg:w-2/3 lg:pl-6 p-4">
-                                        <h4 className="mb-2 text-2xl font-bold font-heading">
-                                            Danny Bailey
-                                        </h4>
-                                        <p className="mb-4 text-gray-500 leading-loose">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae felis at ante bibendum mollis et et mauris.
-                                        </p>
-                                        <div className="flex">
-                                            <Link className="mr-3" href='#'>
-                                                <img src="atis-assets/social/facebook.svg" alt=""/>
-                                            </Link>
-                                            <Link className="mr-3" href='#'>
-                                                <img src="atis-assets/social/twitter.svg" alt=""/>
-                                            </Link>
-                                            <Link href="#">
-                                                <img src="atis-assets/social/instagram.svg" alt=""/>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="mb-6 w-full lg:w-1/2 px-4">
-                                <div className="flex flex-wrap items-center bg-white rounded shadow overflow-hidden">
-                                    <img className="w-full lg:w-1/3 h-80 object-cover"
-                                         src='images/hero-1.png'
-                                         alt=""/>
-                                    <div className="w-full lg:w-2/3 lg:pl-6 p-4">
-                                        <h4 className="mb-2 text-2xl font-bold font-heading">
-                                            Danny Bailey
-                                        </h4>
-                                        <p className="mb-4 text-gray-500 leading-loose">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae felis at ante bibendum mollis et et mauris.
-                                        </p>
-                                        <div className="flex">
-                                            <Link className="mr-3" href='#'>
-                                                <img src="atis-assets/social/facebook.svg" alt=""/>
-                                            </Link>
-                                            <Link className="mr-3" href='#'>
-                                                <img src="atis-assets/social/twitter.svg" alt=""/>
-                                            </Link>
-                                            <Link href="#">
-                                                <img src="atis-assets/social/instagram.svg" alt=""/>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
+                                ))}
                         </div>
                     </div>
                 </div>

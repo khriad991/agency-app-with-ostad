@@ -1,5 +1,19 @@
 
-const AllProjects = () => {
+const getData = async ()=>{
+    const res = await fetch(`${process.env.BASE_URL}api/AllProject`)
+    if(!res.ok){
+        throw new Error("All Project colling Fail")
+    }
+    return res.json();
+}
+
+
+
+
+
+const AllProjects = async () => {
+    const data = await getData();
+
     return (
         <section>
             <div className="skew skew-top mr-for-radius">
@@ -17,7 +31,7 @@ const AllProjects = () => {
                     <div className="mb-16 flex flex-wrap justify-center md:justify-center items-center">
                         <div className="text-center lg:text-center">
                             <span className="text-green-600 font-bold">
-                            Dolor sit amet consectutar
+                                Dolor sit amet consectutar
                             </span>
                             <h2 className="text-4xl lg:text-5xl font-bold font-heading">
                                 Our Projects
@@ -25,72 +39,19 @@ const AllProjects = () => {
                         </div>
                     </div>
                     <div className="flex flex-wrap -mx-4 mb-4">
+                        {
+                            data.map((item,i)=>(
+                                <div key={i} className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
+                                    <a target="_blank" href={item['live']}>
+                                        <img className="h-80 w-full mx-auto object-cover rounded"
+                                             src={item['image']}
+                                             alt="project"/>
+                                    </a>
+                                </div>
+                            ))
+                        }
 
 
-                       <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
-                                        <a target="_blank" href="#">
-                                            <img className="h-80 w-full mx-auto object-cover rounded"
-                                                 src='/images/shutterstock-1702515205.jpg'
-                                                 alt="project"/>
-                                        </a>
-                                    </div>
-
-                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
-                            <a target="_blank" href="#">
-                                <img className="h-80 w-full mx-auto object-cover rounded"
-                                     src='/images/shutterstock-1702515205.jpg'
-                                     alt="project"/>
-                            </a>
-                        </div>
-                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
-                            <a target="_blank" href="#">
-                                <img className="h-80 w-full mx-auto object-cover rounded"
-                                     src='/images/shutterstock-1702515205.jpg'
-                                     alt="project"/>
-                            </a>
-                        </div>
-                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
-                            <a target="_blank" href="#">
-                                <img className="h-80 w-full mx-auto object-cover rounded"
-                                     src='/images/shutterstock-1702515205.jpg'
-                                     alt="project"/>
-                            </a>
-                        </div>
-                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
-                            <a target="_blank" href="#">
-                                <img className="h-80 w-full mx-auto object-cover rounded"
-                                     src='/images/shutterstock-1702515205.jpg'
-                                     alt="project"/>
-                            </a>
-                        </div>
-                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
-                            <a target="_blank" href="#">
-                                <img className="h-80 w-full mx-auto object-cover rounded"
-                                     src='/images/shutterstock-1702515205.jpg'
-                                     alt="project"/>
-                            </a>
-                        </div>
-                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
-                            <a target="_blank" href="#">
-                                <img className="h-80 w-full mx-auto object-cover rounded"
-                                     src='/images/shutterstock-1702515205.jpg'
-                                     alt="project"/>
-                            </a>
-                        </div>
-                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
-                            <a target="_blank" href="#">
-                                <img className="h-80 w-full mx-auto object-cover rounded"
-                                     src='/images/shutterstock-1702515205.jpg'
-                                     alt="project"/>
-                            </a>
-                        </div>
-                        <div className="w-full md:w-1/2 lg:w-1/3 mb-8 px-4">
-                            <a target="_blank" href="#">
-                                <img className="h-80 w-full mx-auto object-cover rounded"
-                                     src='/images/shutterstock-1702515205.jpg'
-                                     alt="project"/>
-                            </a>
-                        </div>
 
 
                     </div>
